@@ -1,0 +1,30 @@
+{
+  "owner": {
+    "name": "Elara AI",
+    "email": "support@elara.ai",
+    "url": "https://elaraai.com"
+  },
+  "plugins": [
+    {
+      "name": "east",
+      "description": "East programming language ecosystem - types, expressions, Node.js/Python runtimes, UI components, and durable execution: skills, example search, search-first hooks and East diagnostics",
+      "homepage": "https://github.com/elaraai/east-workspace",
+      "repository": "https://github.com/elaraai/east-workspace",
+      "license": "AGPL-3.0",
+      "keywords": ["east", "elara", "typescript", "python", "dsl", "e3"],
+      "claude": { "package": "@elaraai/east-claude-plugin" },
+      "codex": { "name": "east-codex-plugin", "package": "@elaraai/east-codex-plugin" }
+    },
+    {
+      "name": "e3-cloud",
+      "description": "e3 cloud - apps for hosted e3 workspaces with @elaraai/e3-cloud-ui, the e3-cloud CLI and @elaraai/e3-cloud-client: skills, example search and the search-first hooks",
+      "homepage": "https://github.com/elaraai/e3-cloud",
+      "repository": "https://github.com/elaraai/e3-cloud",
+      "license": "AGPL-3.0",
+      "keywords": ["e3", "e3-cloud", "east", "elara", "apps"],
+      "dependencies": ["east"],
+      "claude": { "package": "@elaraai/e3-cloud-claude-plugin" },
+      "codex": { "name": "e3-cloud-codex-plugin", "package": "@elaraai/e3-cloud-codex-plugin" }
+    }
+  ]
+}

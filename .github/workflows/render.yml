@@ -1,0 +1,62 @@
+name: Render
+
+# Keeps the two marketplace files current with the npm registry: `main`
+# follows each package's `latest` dist-tag, and the generated `beta` branch
+# its `beta` tag. Runs hourly, on demand, when a release asks
+# (repository_dispatch from the publishing repositories), and when the catalog
+# or the renderer changes.
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [release]
+  push:
+    branches: [main]
+    paths:
+      - catalog.json
+      - scripts/**
+      - .github/workflows/render.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Render the latest channel (main)
+        run: |
+          node scripts/render.mjs --tag latest
+          git add -A
+          if git diff --staged --quiet; then
+            echo "main is current"
+          else
+            git commit -m "catalog: latest${{ github.event.client_payload.version && format(' (release {0})', github.event.client_payload.version) || '' }}"
+            git push origin main
+          fi
+      # The beta branch is generated from main: the same catalog and renderer,
+      # the marketplaces rendered with the beta dist-tags. Never commit to it.
+      - name: Render the beta channel (beta branch)
+        run: |
+          git checkout -B beta
+          node scripts/render.mjs --tag beta
+          git add -A
+          git diff --staged --quiet || git commit -m "catalog: beta"
+          git push --force origin beta

@@ -1,0 +1,10 @@
+{
+  "name": "elaraai",
+  "owner": {
+    "name": "Elara AI",
+    "email": "support@elara.ai",
+    "url": "https://elaraai.com"
+  },
+  "description": "Elara AI's agent plugins for Claude Code: East and e3 cloud, each an npm package pinned at its latest release",
+  "plugins": []
+}
