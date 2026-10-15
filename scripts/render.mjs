@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 // Renders the two marketplace files from catalog.json and the npm registry:
 // each plugin whose package carries the channel's dist-tag is listed as an
-// npm source pinned to that version; one not yet published is left out.
+// npm source pinned to that version; one not yet published is left out. So
+// is a prerelease under `latest`: npm gives a new name's first publish
+// `latest` whatever its version, and a bootstrap at `1.0.90-alpha.0` would
+// otherwise be listed as the release until CI publishes one.
 //
 // Usage: node scripts/render.mjs [--tag latest|beta]
 //   latest (default) renders the marketplaces `elaraai` / `elaraai-codex`;
@@ -20,7 +23,14 @@ if (tag !== 'latest' && tag !== 'beta') {
 const suffix = tag === 'latest' ? '' : `-${tag}`;
 const catalog = JSON.parse(readFileSync('catalog.json', 'utf8'));
 
-/** The version a package carries under the dist-tag, or null when it has none (or is not published). */
+/** A semver prerelease: a hyphen after the patch number. */
+const PRERELEASE = /^\d+\.\d+\.\d+-/;
+
+/**
+ * The version a package carries under the dist-tag, or null when it has none
+ * (or is not published) — or when the tag is `latest` and the version is a
+ * prerelease, which is no release.
+ */
 function published(pkg) {
   const r = spawnSync('npm', ['view', pkg, 'dist-tags', '--json'], { encoding: 'utf8' });
   if (r.status !== 0) {
@@ -28,7 +38,12 @@ function published(pkg) {
     throw new Error(`npm view ${pkg} failed: ${r.stderr.trim()}`);
   }
   const tags = r.stdout.trim() === '' ? {} : JSON.parse(r.stdout);
-  return typeof tags[tag] === 'string' ? tags[tag] : null;
+  const version = typeof tags[tag] === 'string' ? tags[tag] : null;
+  if (version !== null && tag === 'latest' && PRERELEASE.test(version)) {
+    console.log(`${pkg}@${version} is a prerelease under latest (a bootstrap, before its first release): left out`);
+    return null;
+  }
+  return version;
 }
 
 const claude = [];

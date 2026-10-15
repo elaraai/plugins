@@ -54,7 +54,7 @@ claude plugin install east@elaraai
 ## How it works
 
 - `catalog.json` names each plugin, its two packages, and what it depends on.
-- `scripts/render.mjs` reads the registry's dist-tags and writes `.claude-plugin/marketplace.json` (Claude Code) and `.agents/plugins/marketplace.json` (Codex), each entry an `npm` source pinned to the version found; a package not yet published is left out until it is.
+- `scripts/render.mjs` reads the registry's dist-tags and writes `.claude-plugin/marketplace.json` (Claude Code) and `.agents/plugins/marketplace.json` (Codex), each entry an `npm` source pinned to the version found; a package not yet published is left out until it is, and so is a prerelease under `latest` (npm gives a new name's first publish `latest`, whatever its version) until a release replaces it.
 - The `Render` workflow runs it hourly, on `workflow_dispatch`, and on a `repository_dispatch` of type `release` from a publishing repository, committing what changed; it regenerates the `beta` branch from `main` each time.
 
 To list a new plugin, publish its two packages (assembled with `@elaraai/east-plugin`'s `assemblePlugin`, so each is a plugin directory a host installs as it is: manifest, bundles, skills as real files, index, no dependency) and add it to `catalog.json`.

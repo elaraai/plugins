@@ -16,19 +16,6 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
-    },
-    {
-      "name": "e3-cloud-codex-plugin",
-      "source": {
-        "source": "npm",
-        "package": "@elaraai/e3-cloud-codex-plugin",
-        "version": "1.0.90-alpha.0"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
     }
   ]
 }

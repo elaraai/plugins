@@ -32,34 +32,6 @@
         "dsl",
         "e3"
       ]
-    },
-    {
-      "name": "e3-cloud",
-      "source": {
-        "source": "npm",
-        "package": "@elaraai/e3-cloud-claude-plugin",
-        "version": "1.0.90-alpha.0"
-      },
-      "description": "e3 cloud - apps for hosted e3 workspaces with @elaraai/e3-cloud-ui, the e3-cloud CLI and @elaraai/e3-cloud-client: skills, example search and the search-first hooks",
-      "version": "1.0.90-alpha.0",
-      "author": {
-        "name": "Elara AI",
-        "email": "support@elara.ai",
-        "url": "https://elaraai.com"
-      },
-      "homepage": "https://github.com/elaraai/e3-cloud",
-      "repository": "https://github.com/elaraai/e3-cloud",
-      "license": "AGPL-3.0",
-      "keywords": [
-        "e3",
-        "e3-cloud",
-        "east",
-        "elara",
-        "apps"
-      ],
-      "dependencies": [
-        "east"
-      ]
     }
   ]
 }
