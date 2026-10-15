@@ -6,5 +6,32 @@
     "url": "https://elaraai.com"
   },
   "description": "Elara AI's agent plugins for Claude Code: East and e3 cloud, each an npm package pinned at its latest release",
-  "plugins": []
+  "plugins": [
+    {
+      "name": "east",
+      "source": {
+        "source": "npm",
+        "package": "@elaraai/east-claude-plugin",
+        "version": "1.0.89"
+      },
+      "description": "East programming language ecosystem - types, expressions, Node.js/Python runtimes, UI components, and durable execution: skills, example search, search-first hooks and East diagnostics",
+      "version": "1.0.89",
+      "author": {
+        "name": "Elara AI",
+        "email": "support@elara.ai",
+        "url": "https://elaraai.com"
+      },
+      "homepage": "https://github.com/elaraai/east-workspace",
+      "repository": "https://github.com/elaraai/east-workspace",
+      "license": "AGPL-3.0",
+      "keywords": [
+        "east",
+        "elara",
+        "typescript",
+        "python",
+        "dsl",
+        "e3"
+      ]
+    }
+  ]
 }

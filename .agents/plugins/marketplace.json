@@ -3,5 +3,19 @@
   "interface": {
     "displayName": "Elara AI"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "east-codex-plugin",
+      "source": {
+        "source": "npm",
+        "package": "@elaraai/east-codex-plugin",
+        "version": "1.0.89"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
 }
