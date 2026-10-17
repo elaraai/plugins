@@ -1,34 +1,7 @@
 {
-  "name": "elaraai-codex",
+  "name": "elaraai-codex-beta",
   "interface": {
-    "displayName": "Elara AI"
+    "displayName": "Elara AI (beta)"
   },
-  "plugins": [
-    {
-      "name": "east-codex-plugin",
-      "source": {
-        "source": "npm",
-        "package": "@elaraai/east-codex-plugin",
-        "version": "1.0.93"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "e3-cloud-codex-plugin",
-      "source": {
-        "source": "npm",
-        "package": "@elaraai/e3-cloud-codex-plugin",
-        "version": "1.0.93"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    }
-  ]
+  "plugins": []
 }
