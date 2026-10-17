@@ -38,10 +38,10 @@
       "source": {
         "source": "npm",
         "package": "@elaraai/e3-cloud-claude-plugin",
-        "version": "1.0.92"
+        "version": "1.0.93"
       },
       "description": "e3 cloud - apps for hosted e3 workspaces with @elaraai/e3-cloud-ui, the e3-cloud CLI and @elaraai/e3-cloud-client: skills, example search and the search-first hooks",
-      "version": "1.0.92",
+      "version": "1.0.93",
       "author": {
         "name": "Elara AI",
         "email": "support@elara.ai",
