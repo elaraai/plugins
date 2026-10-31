@@ -1,65 +1,10 @@
 {
-  "name": "elaraai",
+  "name": "elaraai-beta",
   "owner": {
     "name": "Elara AI",
     "email": "support@elara.ai",
     "url": "https://elaraai.com"
   },
-  "description": "Elara AI's agent plugins for Claude Code: East and e3 cloud, each an npm package pinned at its latest release",
-  "plugins": [
-    {
-      "name": "east",
-      "source": {
-        "source": "npm",
-        "package": "@elaraai/east-claude-plugin",
-        "version": "1.0.98"
-      },
-      "description": "East programming language ecosystem - types, expressions, Node.js/Python runtimes, UI components, and durable execution: skills, example search, search-first hooks and East diagnostics",
-      "version": "1.0.98",
-      "author": {
-        "name": "Elara AI",
-        "email": "support@elara.ai",
-        "url": "https://elaraai.com"
-      },
-      "homepage": "https://github.com/elaraai/east-workspace",
-      "repository": "https://github.com/elaraai/east-workspace",
-      "license": "AGPL-3.0",
-      "keywords": [
-        "east",
-        "elara",
-        "typescript",
-        "python",
-        "dsl",
-        "e3"
-      ]
-    },
-    {
-      "name": "e3-cloud",
-      "source": {
-        "source": "npm",
-        "package": "@elaraai/e3-cloud-claude-plugin",
-        "version": "1.0.97"
-      },
-      "description": "e3 cloud - apps for hosted e3 workspaces with @elaraai/e3-cloud-ui, the e3-cloud CLI and @elaraai/e3-cloud-client: skills, example search and the search-first hooks",
-      "version": "1.0.97",
-      "author": {
-        "name": "Elara AI",
-        "email": "support@elara.ai",
-        "url": "https://elaraai.com"
-      },
-      "homepage": "https://github.com/elaraai/e3-cloud",
-      "repository": "https://github.com/elaraai/e3-cloud",
-      "license": "AGPL-3.0",
-      "keywords": [
-        "e3",
-        "e3-cloud",
-        "east",
-        "elara",
-        "apps"
-      ],
-      "dependencies": [
-        "east"
-      ]
-    }
-  ]
+  "description": "Elara AI's agent plugins for Claude Code, pre-release channel: East and e3 cloud, each an npm package pinned at its beta release",
+  "plugins": []
 }
