@@ -15,6 +15,7 @@ Claude Code, inside a session or from a terminal:
 ```bash
 claude plugin marketplace add elaraai/plugins
 claude plugin install east@elaraai
+claude plugin install e3-cloud@elaraai
 ```
 
 Codex:
@@ -27,7 +28,7 @@ codex plugin add e3-cloud-codex-plugin@elaraai-codex
 
 Each plugin is fetched from npm with your npm client, as the version this catalog pins; nothing is cloned and no script runs. Node.js 22+ on `PATH` is what the plugins need at runtime.
 
-**Updates.** A release of a plugin publishes its package and this catalog moves its pin within the hour (or at once, when the release asks it to). `/plugin marketplace update elaraai` or `claude plugin update east@elaraai` fetches the new version; turn on auto-update for the marketplace under **Marketplaces** in `/plugin` to receive it without asking. Codex: `codex plugin marketplace upgrade elaraai-codex`, then remove and add the plugin.
+**Updates.** A release of a plugin publishes its package and this catalog moves its pin within the hour (or at once, when the release asks it to). `/plugin marketplace update elaraai`, or `claude plugin update east@elaraai` and `claude plugin update e3-cloud@elaraai`, fetches the new version; turn on auto-update for the marketplace under **Marketplaces** in `/plugin` to receive it without asking. Codex: `codex plugin marketplace upgrade elaraai-codex`, then remove and add the plugin.
 
 **Pre-releases.** The `beta` branch lists each package's `beta` dist-tag under the names `elaraai-beta` and `elaraai-codex-beta`, so both channels can be registered at once:
 
@@ -42,6 +43,7 @@ codex plugin marketplace add elaraai/plugins --ref beta
 claude plugin marketplace remove elaraai
 claude plugin marketplace add elaraai/plugins
 claude plugin install east@elaraai
+claude plugin install e3-cloud@elaraai
 ```
 
 ## Plugins
